@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>X O #</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,41 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>X O #</h1>
+      <br>
+      <p id="message"></p>
+      <br>
+      <h4>Sign Up</h4>
+      <form id="sign-up">
+        <label for="email">Email:</label>
+        <input name="credentials[email]" id="email" type="email" placeholder="Enter email here">
+        <br>
+        <label for="password">Password:</label>
+        <input name="credentials[password]" id="password" type="password" placeholder="Enter password here">
+        <br>
+        <label for="password_confirmation">Confirm Password</label>
+        <input name="credentials[password_confirmation]" id="password_confirmation" type="password" placeholder="Password Confirmation">
+        <br>
+        <button type="submit">Sign Up</button>
+      </form>
+      <br>
+      <h4>Sign In</h4>
+      <form id="sign-in">
+        <label for="email-sign-in">Email:</label>
+        <input name="credentials[email]" id="email-sign-in" type="email" placeholder="Enter email here">
+        <br>
+        <label for="password-sign-in">Password:</label>
+        <input name="credentials[password]" id="password-sign-in" type="password" placeholder="Enter password here">
+        <br>
+        <button type="submit">Sign In</button>
+      <h4>Change Password</h4>
+        <label for="old-password">Old Password:</label>
+        <input name="credentials[password]" id="old-password" type="password" placeholder="Enter old password">
+        <br>
+        <label for="new-password">New Password:</label>
+        <input name="credentials[password]" id="new-password" type="password" placeholder="Enter new password">
+        <br>
+        <button type="submit">Change Password</button>
+      </form>
     </body>
 </html>
