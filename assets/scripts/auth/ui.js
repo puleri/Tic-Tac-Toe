@@ -20,11 +20,15 @@ const onError = function (error) {
   $('#message').text('There was an error. Check spelling and try again.')
   console.log(error)
 }
+const onStartGameSuccess = function () {
+  $('.ttt-board').css('display', 'block')
+}
 
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
   onChangePasswordSuccess,
   onSignOutSuccess,
+  onStartGameSuccess,
   onError
 }
