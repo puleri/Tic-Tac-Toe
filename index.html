@@ -39,14 +39,20 @@
         <input name="credentials[password]" id="password-sign-in" type="password" placeholder="Enter password here">
         <br>
         <button type="submit">Sign In</button>
+      </form>
+      <form id="change-password">
       <h4>Change Password</h4>
         <label for="old-password">Old Password:</label>
-        <input name="credentials[password]" id="old-password" type="password" placeholder="Enter old password">
+        <input name="passwords[old]" id="old-password" type="password" placeholder="Enter old password">
         <br>
         <label for="new-password">New Password:</label>
-        <input name="credentials[password]" id="new-password" type="password" placeholder="Enter new password">
+        <input name="passwords[new]" id="new-password" type="password" placeholder="Enter new password">
         <br>
         <button type="submit">Change Password</button>
+      </form>
+      <h4>Change Password</h4>
+      <form id="sign-out">
+        <button type="submit">Sign Out</button>
       </form>
     </body>
 </html>
