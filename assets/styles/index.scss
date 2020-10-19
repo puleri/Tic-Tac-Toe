@@ -2,4 +2,34 @@
 
 .ttt-board {
   display: none;
+  padding-top: 60px;
+}
+
+body {
+  background-color: #AFF3F6;
+}
+
+.box {
+  align-items: center;
+  background-color: #AFF3F6;
+  display: flex;
+  justify-content: center;
+}
+
+.vertical {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.horizontal {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+// Reference: Shadey Salem, "tictactoe board (HTML/CSS)", Oct. 16, 2020,
+// CodePen, <https://codepen.io/xunnn/pen/yEmMbm>
+
+.row {
+  height: 85px;
+  width: 325px;
 }
