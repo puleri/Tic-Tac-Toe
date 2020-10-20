@@ -2,6 +2,7 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+let currentPlayer = 'X'
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -81,6 +82,26 @@ const markBoard = function () {
 }
 //
 // const gameOver = false
+const updateGame = e => {
+  e.preventDefault()
+
+  console.log('click')
+  // Select the box that was clicked, event.target
+  const box = $(e.target)
+  const index = box.data('cellIndex')
+  // only execute code below if empty square is clicked
+  if (!box.text()) {
+    // If the value at “index” in the gameBoard array ===“”, I should “return” and do nothing
+    // Then set the text to the current player
+    box.text(currentPlayer)
+    api.makeMove(index, currentPlayer, false)
+      .then(ui.onMakeMoveSuccess)
+      .catch(ui.onMakeMoveFailure)
+    // Change the current player
+    currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+  }
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -89,5 +110,6 @@ module.exports = {
   onCreateGame,
   onMove,
   markBoard,
+  updateGame,
   onChangePassword
 }

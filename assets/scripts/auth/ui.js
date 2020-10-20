@@ -30,7 +30,9 @@ const onMakeMoveSuccess = function (response) {
 const onMakeMoveFailure = function (event) {
   $('#message').text('That is not a possible move.')
 }
-
+// const onUpdateGameSuccess = res => {
+//   store.game = res.game
+// }
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
