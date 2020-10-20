@@ -58,12 +58,36 @@ const onCreateGame = function (event) {
     .then(ui.onCreateGameSuccess)
     .catch(ui.onError)
 }
+const onMove = function (event) {
+  event.preventDefault()
+  // console.log('move made')
+  // console.log('event is ', event)
+  // get which users turn it is
+  // get which position they clicked
+  // send that data to the api
 
+  api.makeMove()
+    .then(ui.onMakeMoveSuccess)
+    .catch(ui.onMakeMoveFailure)
+}
+const markBoard = function () {
+  event.preventDefault()
+  console.log(event.target.innerHTML)
+
+  // if event.target.innerHTML = 'X' {}
+  // else {}
+
+  // $(event.target).text('X')
+}
+
+const gameOver = false
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onStartGame,
   onCreateGame,
+  onMove,
+  markBoard,
   onChangePassword
 }

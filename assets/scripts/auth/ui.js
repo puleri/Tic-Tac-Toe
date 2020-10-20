@@ -17,11 +17,18 @@ const onSignOutSuccess = function () {
   $('#message').text('You are now signed out!')
 }
 const onError = function (error) {
-  $('#message').text('There was an error. Check spelling and try again.')
-  console.log(error)
+  $('#message').text('There was an error. Check spelling and try again.' + error)
 }
-const onStartGameSuccess = function () {
+const onStartGameSuccess = function (response) {
   $('.ttt-board').css('display', 'block')
+  store.game = response.game
+}
+const onMakeMoveSuccess = function (response) {
+  store.game = response.game
+  console.log(response)
+}
+const onMakeMoveFailure = function (event) {
+  $('#message').text('That is not a possible move.')
 }
 
 module.exports = {
@@ -30,5 +37,7 @@ module.exports = {
   onChangePasswordSuccess,
   onSignOutSuccess,
   onStartGameSuccess,
+  onMakeMoveSuccess,
+  onMakeMoveFailure,
   onError
 }
