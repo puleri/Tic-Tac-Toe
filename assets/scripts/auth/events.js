@@ -2,7 +2,38 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
+
 let currentPlayer = 'X'
+let gameIsOver = false
+
+const checkConditions = (currentPlayer) => {
+  if (store.game.cells[0] === currentPlayer && store.game.cells[1] ===
+    currentPlayer && store.game.cells[2] === currentPlayer) {
+    return true
+  } else if (store.game.cells[0] === currentPlayer && store.game.cells[3] ===
+  currentPlayer && store.game.cells[6] === currentPlayer) {
+    return true
+  } else if (store.game.cells[0] === currentPlayer && store.game.cells[4] ===
+  currentPlayer && store.game.cells[8] === currentPlayer) {
+    return true
+  } else if (store.game.cells[1] === currentPlayer && store.game.cells[4] ===
+  currentPlayer && store.game.cells[7] === currentPlayer) {
+    return true
+  } else if (store.game.cells[2] === currentPlayer && store.game.cells[5] ===
+  currentPlayer && store.game.cells[8] === currentPlayer) {
+    return true
+  } else if (store.game.cells[3] === currentPlayer && store.game.cells[4] ===
+  currentPlayer && store.game.cells[5] === currentPlayer) {
+    return true
+  } else if (store.game.cells[6] === currentPlayer && store.game.cells[7] ===
+  currentPlayer && store.game.cells[8] === currentPlayer) {
+    return true
+  } else if (store.game.cells[2] === currentPlayer && store.game.cells[4] ===
+  currentPlayer && store.game.cells[6]) {
+    return true
+  } else return false
+}
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -71,34 +102,38 @@ const onMove = function (event) {
     .then(ui.onMakeMoveSuccess)
     .catch(ui.onMakeMoveFailure)
 }
-const markBoard = function () {
-  event.preventDefault()
-  console.log(event.target.innerHTML)
+// const markBoard = function () {
+//   event.preventDefault()
+// }
 
-  // if event.target.innerHTML = 'X' {}
-  // else {}
-
-  // $(event.target).text('X')
-}
-//
-// const gameOver = false
 const updateGame = e => {
   e.preventDefault()
 
   console.log('click')
   // Select the box that was clicked, event.target
   const box = $(e.target)
+  console.log('e.target is ', e.target)
   const index = box.data('cellIndex')
   // only execute code below if empty square is clicked
   if (!box.text()) {
-    // If the value at “index” in the gameBoard array ===“”, I should “return” and do nothing
-    // Then set the text to the current player
-    box.text(currentPlayer)
-    api.makeMove(index, currentPlayer, false)
+    $(e.target).text(currentPlayer)
+    api.makeMove(index, currentPlayer, gameIsOver)
       .then(ui.onMakeMoveSuccess)
+      .then(() => {
+        if (checkConditions(currentPlayer)) {
+          // let api and ui know about win
+          console.log('this is a win!')
+        } else if (!store.game.cells.includes('')) {
+          // game is a tie
+          // let api and ui know
+          console.log('this is a tie')
+        } else {
+          // game continues
+          currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+        }
+      })
       .catch(ui.onMakeMoveFailure)
     // Change the current player
-    currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
   }
 }
 
@@ -109,7 +144,8 @@ module.exports = {
   onStartGame,
   onCreateGame,
   onMove,
-  markBoard,
+  // markBoard,
   updateGame,
+  checkConditions,
   onChangePassword
 }

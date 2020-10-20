@@ -25,7 +25,7 @@ const onStartGameSuccess = function (response) {
 }
 const onMakeMoveSuccess = function (response) {
   store.game = response.game
-  console.log(response)
+  // console.log('onMakeMoveSuccess response.game.cells is ', response.game.cells)
 }
 const onMakeMoveFailure = function (event) {
   $('#message').text('That is not a possible move.')
