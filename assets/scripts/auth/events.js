@@ -79,8 +79,8 @@ const markBoard = function () {
 
   // $(event.target).text('X')
 }
-
-const gameOver = false
+//
+// const gameOver = false
 module.exports = {
   onSignUp,
   onSignIn,
