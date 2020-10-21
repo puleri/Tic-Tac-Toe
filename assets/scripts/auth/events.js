@@ -122,7 +122,7 @@ const updateGame = e => {
       .then(() => {
         if (checkConditions(currentPlayer)) {
           // let api and ui know about win
-          console.log('this is a win!')
+          console.log('Winner!')
         } else if (!store.game.cells.includes('')) {
           // game is a tie
           // let api and ui know
