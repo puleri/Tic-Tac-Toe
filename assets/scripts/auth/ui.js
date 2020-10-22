@@ -11,6 +11,7 @@ const onSignInSuccess = function (response) {
   $('#sign-out').css('display', 'block')
   $('#change-password').css('display', 'block')
   $('.start-game').css('display', 'block')
+  $('.show-games').css('display', 'block')
   // const user = store.user
   store.user = response.user
 }
@@ -40,6 +41,11 @@ const onMakeMoveFailure = function (event) {
 const onGameEnd = function (event) {
 
 }
+const onShowGamesSuccess = function (res) {
+  // console.log(res.games)
+  const games = res.games
+  $('.game-index').text('You have played ' + games.length + ' games in total. Nice.')
+}
 
 module.exports = {
   onSignUpSuccess,
@@ -50,5 +56,6 @@ module.exports = {
   onMakeMoveSuccess,
   onMakeMoveFailure,
   onGameEnd,
+  onShowGamesSuccess,
   onError
 }

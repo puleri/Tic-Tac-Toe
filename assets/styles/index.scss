@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+.show-games {
+  display: none;
+}
+
 .ttt-board {
   display: none;
   padding-top: 60px;

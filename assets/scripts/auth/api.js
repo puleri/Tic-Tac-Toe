@@ -76,6 +76,15 @@ const makeMove = function (index, player, gameIsOver) {
     }
   })
 }
+const showGames = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,
@@ -83,5 +92,6 @@ module.exports = {
   startGame,
   createGame,
   makeMove,
+  showGames,
   changePassword
 }

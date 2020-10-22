@@ -5,7 +5,7 @@ const ui = require('./ui')
 const store = require('../store')
 
 let currentPlayer = 'X'
-let gameIsOver = false
+const gameIsOver = false
 
 const checkConditions = (currentPlayer) => {
   const gameCells = store.game.cells
@@ -110,10 +110,9 @@ const onMove = function (event) {
 const updateGame = e => {
   e.preventDefault()
 
-  console.log('click')
-  // Select the box that was clicked, event.target
+  // console.log('Click! Game array is ', store.game)
   const box = $(e.target)
-  console.log('e.target is ', e.target)
+  // console.log('e.target is ', e.target)
   const index = box.data('cellIndex')
   // only execute code below if empty square is clicked
   if (!box.text()) {
@@ -125,22 +124,29 @@ const updateGame = e => {
       .then(() => {
         if (checkConditions(currentPlayer)) {
           // let api and ui know about win
-          console.log('Winner!')
+          // console.log('Winner!')
           $('.box').css('pointer-events', 'none')
         } else if (!store.game.cells.includes('')) {
           // game is a tie
           // let api and ui know
-          console.log('this is a tie')
+          // console.log('this is a tie')
           $('.box').css('pointer-events', 'none')
         } else {
           // game continues
-          console.log('turn was made. changing players')
+          // console.log('turn was made. changing players')
           currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
         }
       })
       .catch(ui.onMakeMoveFailure)
     // Change the current player
   }
+}
+const showGames = function (event) {
+  event.preventDefault()
+
+  api.showGames()
+    .then(ui.onShowGamesSuccess)
+    .catch(ui.onError)
 }
 
 module.exports = {
@@ -150,8 +156,8 @@ module.exports = {
   onStartGame,
   onCreateGame,
   onMove,
-  // markBoard,
   updateGame,
   checkConditions,
+  showGames,
   onChangePassword
 }
