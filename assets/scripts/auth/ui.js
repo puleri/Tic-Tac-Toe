@@ -26,6 +26,8 @@ const onError = function (error) {
 }
 const onStartGameSuccess = function (response) {
   $('.ttt-board').css('display', 'block')
+  $('.box').css('pointer-events', 'auto')
+  $('.box').text('')
   store.game = response.game
 }
 const onMakeMoveSuccess = function (response) {
@@ -35,9 +37,10 @@ const onMakeMoveSuccess = function (response) {
 const onMakeMoveFailure = function (event) {
   $('#message').text('That is not a possible move.')
 }
-// const onUpdateGameSuccess = res => {
-//   store.game = res.game
-// }
+const onGameEnd = function (event) {
+
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
@@ -46,5 +49,6 @@ module.exports = {
   onStartGameSuccess,
   onMakeMoveSuccess,
   onMakeMoveFailure,
+  onGameEnd,
   onError
 }

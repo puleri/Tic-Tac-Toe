@@ -8,29 +8,30 @@ let currentPlayer = 'X'
 let gameIsOver = false
 
 const checkConditions = (currentPlayer) => {
-  if (store.game.cells[0] === currentPlayer && store.game.cells[1] ===
-    currentPlayer && store.game.cells[2] === currentPlayer) {
+  const gameCells = store.game.cells
+  if (gameCells[0] !== '' && gameCells[0] === gameCells[1] && gameCells[2] === gameCells[0]) {
+    // console.log('win 1 type')
     return true
-  } else if (store.game.cells[0] === currentPlayer && store.game.cells[3] ===
-  currentPlayer && store.game.cells[6] === currentPlayer) {
+  } else if (gameCells[0] !== '' && gameCells[0] === gameCells[3] && gameCells[6] === gameCells[0]) {
+    // console.log('win 2 type')
     return true
-  } else if (store.game.cells[0] === currentPlayer && store.game.cells[4] ===
-  currentPlayer && store.game.cells[8] === currentPlayer) {
+  } else if (gameCells[0] !== '' && gameCells[0] === gameCells[4] && gameCells[8] === gameCells[0]) {
+    // console.log('win 3 type')
     return true
-  } else if (store.game.cells[1] === currentPlayer && store.game.cells[4] ===
-  currentPlayer && store.game.cells[7] === currentPlayer) {
+  } else if (gameCells[1] !== '' && gameCells[1] === gameCells[4] && gameCells[7] === gameCells[1]) {
+    // console.log('win 4 type')
     return true
-  } else if (store.game.cells[2] === currentPlayer && store.game.cells[5] ===
-  currentPlayer && store.game.cells[8] === currentPlayer) {
+  } else if (gameCells[2] !== '' && gameCells[2] === gameCells[5] && gameCells[8] === gameCells[2]) {
+    // console.log('win 5 type')
     return true
-  } else if (store.game.cells[3] === currentPlayer && store.game.cells[4] ===
-  currentPlayer && store.game.cells[5] === currentPlayer) {
+  } else if (gameCells[3] !== '' && gameCells[3] === gameCells[4] && gameCells[5] === gameCells[3]) {
+    // console.log('win 6 type')
     return true
-  } else if (store.game.cells[6] === currentPlayer && store.game.cells[7] ===
-  currentPlayer && store.game.cells[8] === currentPlayer) {
+  } else if (gameCells[6] !== '' && gameCells[6] === gameCells[7] && gameCells[6] === gameCells[8]) {
+    // console.log('win 7 type')
     return true
-  } else if (store.game.cells[2] === currentPlayer && store.game.cells[4] ===
-  currentPlayer && store.game.cells[6]) {
+  } else if (gameCells[2] !== '' && gameCells[2] === gameCells[4] && gameCells[2] === gameCells[6]) {
+    // console.log('win 8 type')
     return true
   } else return false
 }
@@ -119,14 +120,18 @@ const updateGame = e => {
     $(e.target).text(currentPlayer)
     api.makeMove(index, currentPlayer, gameIsOver)
       .then(ui.onMakeMoveSuccess)
+      // check out what this function is doing and try nesting it in on
+      // onMakeMoveSuccess
       .then(() => {
         if (checkConditions(currentPlayer)) {
           // let api and ui know about win
           console.log('Winner!')
+          $('.box').css('pointer-events', 'none')
         } else if (!store.game.cells.includes('')) {
           // game is a tie
           // let api and ui know
           console.log('this is a tie')
+          $('.box').css('pointer-events', 'none')
         } else {
           // game continues
           console.log('turn was made. changing players')
