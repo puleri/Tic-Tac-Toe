@@ -8,6 +8,9 @@ const onSignUpSuccess = function (response) {
 const onSignInSuccess = function (response) {
   $('#message').text(response.user.email + ' is now signed in.')
   $('#sign-in').trigger('reset')
+  $('#sign-out').css('display', 'block')
+  $('#change-password').css('display', 'block')
+  $('.start-game').css('display', 'block')
   // const user = store.user
   store.user = response.user
 }

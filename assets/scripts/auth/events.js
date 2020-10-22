@@ -129,6 +129,7 @@ const updateGame = e => {
           console.log('this is a tie')
         } else {
           // game continues
+          console.log('turn was made. changing players')
           currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
         }
       })
