@@ -132,6 +132,7 @@ const updateGame = e => {
           // let api and ui know
           // console.log('this is a tie')
           $('.box').css('pointer-events', 'none')
+          $('.end-game').text('Cats game! (It is a tie)')
         } else {
           // game continues
           // console.log('turn was made. changing players')
