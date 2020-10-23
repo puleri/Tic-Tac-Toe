@@ -15,4 +15,6 @@ $(() => {
   $('#start-game').on('click', events.onStartGame)
   $('.box').on('click', events.updateGame)
   $('#show-games').on('click', events.showGames)
+  $('#has-account').on('click', events.showSignIn)
+  $('#no-account').on('click', events.showSignUp)
 })

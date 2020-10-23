@@ -126,6 +126,7 @@ const updateGame = e => {
           // let api and ui know about win
           // console.log('Winner!')
           $('.box').css('pointer-events', 'none')
+          $('.end-game').text('The winner is ' + currentPlayer + '!')
         } else if (!store.game.cells.includes('')) {
           // game is a tie
           // let api and ui know
@@ -149,6 +150,22 @@ const showGames = function (event) {
     .catch(ui.onError)
 }
 
+const showSignIn = function (event) {
+  $('#sign-in').css('display', 'block')
+  $('#sign-up').css('display', 'none')
+  $('h4').css('display', 'none')
+  $('#has-account').css('display', 'none')
+  $('#no-account').css('display', 'block')
+}
+
+const showSignUp = function (event) {
+  $('#sign-in').css('display', 'none')
+  $('#sign-up').css('display', 'block')
+  $('h4').css('display', 'block')
+  $('#has-account').css('display', 'block')
+  $('#no-account').css('display', 'none')
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -159,5 +176,7 @@ module.exports = {
   updateGame,
   checkConditions,
   showGames,
+  showSignIn,
+  showSignUp,
   onChangePassword
 }

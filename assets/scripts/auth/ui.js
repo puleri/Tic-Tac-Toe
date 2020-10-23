@@ -6,12 +6,14 @@ const onSignUpSuccess = function (response) {
   $('#sign-up').trigger('reset')
 }
 const onSignInSuccess = function (response) {
-  $('#message').text(response.user.email + ' is now signed in.')
+  $('#message').text('Hello ' + response.user.email + '. You are currently signed in.')
   $('#sign-in').trigger('reset')
+  $('#sign-in').css('display', 'none')
   $('#sign-out').css('display', 'block')
   $('#change-password').css('display', 'block')
   $('.start-game').css('display', 'block')
   $('.show-games').css('display', 'block')
+  $('#no-account').css('display', 'none')
   // const user = store.user
   store.user = response.user
 }
@@ -27,6 +29,7 @@ const onError = function (error) {
 }
 const onStartGameSuccess = function (response) {
   $('.ttt-board').css('display', 'block')
+  $('.ttt-board').css('padding-top', '60px')
   $('.box').css('pointer-events', 'auto')
   $('.box').text('')
   store.game = response.game
@@ -37,9 +40,6 @@ const onMakeMoveSuccess = function (response) {
 }
 const onMakeMoveFailure = function (event) {
   $('#message').text('That is not a possible move.')
-}
-const onGameEnd = function (event) {
-
 }
 const onShowGamesSuccess = function (res) {
   // console.log(res.games)
@@ -55,7 +55,6 @@ module.exports = {
   onStartGameSuccess,
   onMakeMoveSuccess,
   onMakeMoveFailure,
-  onGameEnd,
   onShowGamesSuccess,
   onError
 }
