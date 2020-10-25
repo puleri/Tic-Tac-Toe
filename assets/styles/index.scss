@@ -5,9 +5,14 @@
   display: none;
 }
 
+.row {
+  margin: auto;
+}
+
 .ttt-board {
   display: none;
-  padding-top: 1px;
+  margin-top: -180px;
+  padding-bottom: 10px;
 }
 
 h1 {
@@ -27,9 +32,19 @@ h4 {
 
 }
 
+.show-change-password {
+  font-size: 20px;
+  display: none;
+  border: none;
+  background-color: #AFF3F6;
+}
+
+.show-change-password:hover {
+  text-decoration: underline;
+}
+
 #has-account {
-  padding-top: 75px;
-  padding-left: 10px;
+  margin-top: 75px;
   border: none;
   background-color: #AFF3F6;
 }
@@ -66,6 +81,7 @@ h4 {
 }
 
 #change-password {
+  margin-top: -60px;
   display: none;
 }
 
@@ -76,6 +92,7 @@ h4 {
 body {
   background-color: #AFF3F6;
   font-family: 'VT323', monospace;
+  margin: 30px;
   h1 h2 {
     margin: auto;
 }

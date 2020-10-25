@@ -157,6 +157,7 @@ const showSignIn = function (event) {
   $('h4').css('display', 'none')
   $('#has-account').css('display', 'none')
   $('#no-account').css('display', 'block')
+  $('#message').text('')
 }
 
 const showSignUp = function (event) {
@@ -165,6 +166,11 @@ const showSignUp = function (event) {
   $('h4').css('display', 'block')
   $('#has-account').css('display', 'block')
   $('#no-account').css('display', 'none')
+  $('#message').text('')
+}
+
+const showChangePassword = function (event) {
+  $('#change-password').css('display', 'block')
 }
 
 module.exports = {
@@ -179,5 +185,6 @@ module.exports = {
   showGames,
   showSignIn,
   showSignUp,
+  showChangePassword,
   onChangePassword
 }
