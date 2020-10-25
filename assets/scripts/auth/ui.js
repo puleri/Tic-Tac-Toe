@@ -10,10 +10,10 @@ const onSignInSuccess = function (response) {
   $('#sign-in').trigger('reset')
   $('#sign-in').css('display', 'none')
   $('#sign-out').css('display', 'block')
-  $('#change-password').css('display', 'block')
   $('.start-game').css('display', 'block')
   $('.show-games').css('display', 'block')
   $('#no-account').css('display', 'none')
+  $('.show-change-password').css('display', 'block')
   // const user = store.user
   store.user = response.user
 }
@@ -23,6 +23,12 @@ const onChangePasswordSuccess = function () {
 }
 const onSignOutSuccess = function () {
   $('#message').text('You are now signed out!')
+  $('#sign-out').css('display', 'none')
+  $('#change-password').css('display', 'none')
+  $('.start-game').css('display', 'none')
+  $('.show-games').css('display', 'none')
+  $('#sign-in').css('display', 'block')
+  $('#no-account').css('display', 'block')
 }
 const onError = function (error) {
   $('#message').text('There was an error. Check spelling and try again.' + error)
@@ -44,7 +50,7 @@ const onMakeMoveFailure = function (event) {
 const onShowGamesSuccess = function (res) {
   // console.log(res.games)
   const games = res.games
-  $('.game-index').text('You have played ' + games.length + ' games in total. Nice.')
+  $('.game-index').text('You have played ' + games.length + ' games.')
 }
 
 module.exports = {
