@@ -171,6 +171,7 @@ const showSignUp = function (event) {
 
 const showChangePassword = function (event) {
   $('#change-password').css('display', 'block')
+  $('.show-change-password').css('display', 'none')
 }
 
 module.exports = {

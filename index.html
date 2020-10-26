@@ -16,6 +16,7 @@
       <br>
       <form class="start-game">
       <h2>Start Game</h2>
+      <p id="once-signed-in"></p>
         <button id="start-game">New Game</button>
       </form>
       <br>
@@ -48,16 +49,20 @@
       <br>
       <p id="message"></p>
       <br>
-      <h4>Sign Up</h4>
       <form id="sign-up">
+        <h4>Sign Up</h4>
         <label for="email">Email:</label>
+        <br>
         <input name="credentials[email]" id="email" type="email" placeholder="Enter email here">
         <br>
         <label for="password">Password:</label>
+        <br>
         <input name="credentials[password]" id="password" type="password" placeholder="Enter password here">
         <br>
-        <label for="password_confirmation">Confirm Password</label>
+        <label for="password_confirmation">Confirm Password:</label>
+        <br>
         <input name="credentials[password_confirmation]" id="password_confirmation" type="password" placeholder="Password Confirmation">
+        <br>
         <br>
         <button type="submit">Sign Up</button>
       </form>
@@ -66,10 +71,13 @@
       <form id="sign-in">
         <p id="h4-sign-in">Sign In</p>
           <label for="email-sign-in">Email:</label>
+          <br>
           <input name="credentials[email]" id="email-sign-in" type="email" placeholder="Enter email here">
           <br>
           <label for="password-sign-in">Password:</label>
+          <br>
           <input name="credentials[password]" id="password-sign-in" type="password" placeholder="Enter password here">
+          <br>
           <br>
           <button type="submit">Sign In</button>
       </form>

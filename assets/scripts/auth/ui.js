@@ -2,11 +2,15 @@
 const store = require('./../store')
 
 const onSignUpSuccess = function (response) {
-  $('#message').text('Thanks for signing up ' + response.user.email)
+  $('#message').text('Thanks for signing up ' + response.user.email + '. Please, sign in!')
+  $('#sign-in').css('display', 'block')
   $('#sign-up').trigger('reset')
+  $('#sign-up').css('display', 'none')
+  $('#has-account').css('display', 'none')
+  $('#no-account').css('display', 'block')
 }
 const onSignInSuccess = function (response) {
-  $('#message').text('Hello ' + response.user.email + '. You are currently signed in.')
+  $('#once-signed-in').text('Hello ' + response.user.email + '. You are currently signed in.')
   $('#sign-in').trigger('reset')
   $('#sign-in').css('display', 'none')
   $('#sign-out').css('display', 'block')
@@ -29,15 +33,21 @@ const onSignOutSuccess = function () {
   $('.show-games').css('display', 'none')
   $('#sign-in').css('display', 'block')
   $('#no-account').css('display', 'block')
+  $('.show-change-password').css('display', 'none')
+  $('.ttt-board').css('display', 'none')
+  $('.game-index').text('')
+  $('.end-game').text('')
 }
 const onError = function (error) {
-  $('#message').text('There was an error. Check spelling and try again.' + error)
+  $('#message').text('Check spelling and try again.')
+    .catch(error)
 }
 const onStartGameSuccess = function (response) {
   $('.ttt-board').css('display', 'block')
   $('.ttt-board').css('padding-top', '60px')
   $('.box').css('pointer-events', 'auto')
   $('.box').text('')
+  $('.end-game').text('')
   store.game = response.game
 }
 const onMakeMoveSuccess = function (response) {
