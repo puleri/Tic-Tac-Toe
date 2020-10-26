@@ -18,6 +18,7 @@ const onSignInSuccess = function (response) {
   $('.show-games').css('display', 'block')
   $('#no-account').css('display', 'none')
   $('.show-change-password').css('display', 'block')
+  $('#message').text('')
   // const user = store.user
   store.user = response.user
 }
