@@ -28,7 +28,10 @@ Features to be created for the application include an overhaul on the
 ui/ux, such as a picture of a cat to be displayed when the players
 achieve a 'cats game' (known more commonly as a 'tie-game'). More
 utiliy to be added might include a stats displayer to compliment
-the show-games feaure. 
+the show-games feaure. I also could not figure out how to
+tell the user the space they clicked had already been taken.
+I believe this is due to the way I made boxes unclickable after being
+taken (removing event listeners).
 
 ## Wireframe
 
