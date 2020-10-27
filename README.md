@@ -24,9 +24,11 @@ and when possible finding solutions online.
 
 ## Future of the application
 
-Features to be created for the application include a message indicating
-whos turn it is next, a message declaring the final result of the game
-and an overhaul on the ui/ux.
+Features to be created for the application include an overhaul on the
+ui/ux, such as a picture of a cat to be displayed when the players
+achieve a 'cats game' (known more commonly as a 'tie-game'). More
+utiliy to be added might include a stats displayer to compliment
+the show-games feaure. 
 
 ## Wireframe
 
