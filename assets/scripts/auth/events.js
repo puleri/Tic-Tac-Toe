@@ -137,6 +137,8 @@ const updateGame = e => {
           // game continues
           // console.log('turn was made. changing players')
           currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+          // the currentPlayer can be put in messages
+          $('.end-game').text('Player ' + currentPlayer + ' it is your move.')
         }
       })
       .catch(ui.onMakeMoveFailure)
