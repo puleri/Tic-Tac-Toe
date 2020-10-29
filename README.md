@@ -36,6 +36,8 @@ tell the user the space they clicked had already been taken.
 I believe this is due to the way I made boxes unclickable after being
 taken (removing event listeners).
 
+PvC: Player vs computer feature would also be nice to add in the future.
+
 ## Wireframe
 
 [! Wireframe for User, new user, start game, playable game, and outcome](https://imgur.com/a/PfHEJ4n)
