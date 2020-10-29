@@ -22,6 +22,9 @@ accomplished by adding a check to make sure the boxes were not empty.
 I solved this problem and problems like it often by consulting peers
 and when possible finding solutions online.
 
+Problem solving stategies included consorting with other coders, using past
+notes, Google, and console logging frequently.
+
 ## Future of the application
 
 Features to be created for the application include an overhaul on the
