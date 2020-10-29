@@ -18,4 +18,5 @@ $(() => {
   $('#has-account').on('click', events.showSignIn)
   $('#no-account').on('click', events.showSignUp)
   $('.show-change-password').on('click', events.showChangePassword)
+  $('.taken').on('click', events.takenBox)
 })

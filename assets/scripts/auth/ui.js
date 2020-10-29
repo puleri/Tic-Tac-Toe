@@ -23,7 +23,7 @@ const onSignInSuccess = function (response) {
   store.user = response.user
 }
 const onChangePasswordSuccess = function () {
-  $('#message').text('You have successfully changed your password.')
+  $('.end-game').text('You have successfully changed your password.')
   $('#change-password').trigger('reset')
 }
 const onSignOutSuccess = function () {
@@ -63,6 +63,9 @@ const onShowGamesSuccess = function (res) {
   const games = res.games
   $('.game-index').text('You have played ' + games.length + ' games.')
 }
+const onChangePasswordFailure = function () {
+  $('.end-game').text('Your old password is incorrect. Try again.')
+}
 
 module.exports = {
   onSignUpSuccess,
@@ -73,5 +76,6 @@ module.exports = {
   onMakeMoveSuccess,
   onMakeMoveFailure,
   onShowGamesSuccess,
+  onChangePasswordFailure,
   onError
 }

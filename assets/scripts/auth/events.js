@@ -67,7 +67,7 @@ const onChangePassword = function (event) {
 
   api.changePassword(data)
     .then(ui.onChangePasswordSuccess)
-    .catch(ui.onError)
+    .catch(ui.onChangePasswordFailure)
 }
 const onSignOut = function (data) {
   event.preventDefault()
@@ -176,6 +176,12 @@ const showChangePassword = function (event) {
   $('.show-change-password').css('display', 'none')
 }
 
+const takenBox = function (event) {
+  if ($('.box').css('pointer-events') === 'none') {
+    $('#taken-message').text('This box is taken. Try different box.')
+  }
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -189,5 +195,6 @@ module.exports = {
   showSignIn,
   showSignUp,
   showChangePassword,
+  takenBox,
   onChangePassword
 }
